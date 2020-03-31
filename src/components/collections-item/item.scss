@@ -4,6 +4,7 @@
   flex-direction: column;
   height: 350px;
   align-items: center;
+  overflow: hidden;
 
   .image {
     width: 100%;
@@ -26,7 +27,7 @@
     }
 
     .price {
-      width: 10%;
+      width: 18%;
     }
   }
 }
