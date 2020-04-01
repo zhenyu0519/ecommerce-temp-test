@@ -21,9 +21,13 @@ class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    // Check if there is user logged in
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      // If a use logged in
       if (userAuth) {
+        // Get the logged in user's reference from firebase
         const userRef = await createUserProfileDocument(userAuth);
+        // Get the logged in user's simple data based on reference
         userRef.onSnapshot(snapShot => {
           this.setState({
             currentUser: {
