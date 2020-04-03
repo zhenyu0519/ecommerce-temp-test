@@ -6,7 +6,7 @@ import {
   selectCartItems,
   selelctCartTotal
 } from "../../redux/cart/cartSelectors";
-import CheckoutItem from "../checkout-Item/CheckoutItem";
+import CheckoutItem from "../../components/checkout-Item/CheckoutItem";
 
 function Checkout({ cartItems, totalCost }) {
   return (
