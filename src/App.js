@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import HomePage from "./pages/homepages/HomePage";
-import ShopPage from "./components/shop/Shop";
+import ShopPage from "./pages/shop/Shop";
 import Header from "./components/header/Header";
-import SignInUp from "./components/sign-in-up/SignInUp";
-import Checkout from "./components/checkout/Checkout";
+import SignInUp from "./pages/sign-in-up/SignInUp";
+import Checkout from "./pages/checkout/Checkout";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase";
 import { connect } from "react-redux";
