@@ -8,6 +8,8 @@ a {
   color: black;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
