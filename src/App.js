@@ -3,10 +3,10 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 // components
 import Header from "./components/header/Header";
-import HomePage from "./pages/homepages/HomePage";
-import ShopPage from "./pages/shop/Shop";
-import SignInUp from "./pages/sign-in-up/SignInUp";
-import Checkout from "./pages/checkout/Checkout";
+import HomePage from "./pages/home-page/HomePage";
+import ShopPage from "./pages/shop-page/ShopPage";
+import SignInUpPage from "./pages/sign-in-up-page/SignInUpPage";
+import CheckoutPage from "./pages/checkout-page/CheckoutPage";
 // firebase auth
 import { auth, createUserProfileDocument } from "./firebase/firebase";
 // redux actions, selector
@@ -52,12 +52,12 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <Route
             exact
             path="/signin"
             render={() =>
-              this.props.currentUser ? <Redirect to="/" /> : <SignInUp />
+              this.props.currentUser ? <Redirect to="/" /> : <SignInUpPage />
             }
           />
         </Switch>
