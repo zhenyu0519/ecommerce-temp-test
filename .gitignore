@@ -18,9 +18,6 @@
 .env.test.local
 .env.production.local
 
-# api key
-src/components/stripe-button/stripePublishableKey.js
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
