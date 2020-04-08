@@ -35,18 +35,18 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
+// for one time use to push local data into firestore database
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToadd
 ) => {
   const collectionRef = firestore.collection(collectionKey);
-
+// batch here is to prevent uploading half data, it is for either uploading all data or uploading no data
   const batch = firestore.batch();
   objectsToadd.forEach((obj) => {
     const newDocRef = collectionRef.doc();
     batch.set(newDocRef, obj);
   });
-
   return await batch.commit();
 };
 

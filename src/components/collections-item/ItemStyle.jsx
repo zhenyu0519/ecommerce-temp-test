@@ -23,7 +23,7 @@ export const CollectionItemContainer = styled.div`
   &:hover {
     & ${CollectionImage} {
       opacity: 0.8;
-      transform: scale(1.5);
+      transform: scale(1.2);
       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
     button {
@@ -41,12 +41,11 @@ export const CollectionFooterContainer = styled.div`
 `;
 
 export const Name = styled.span`
-  width: 90%;
-  margin-bottom: 15px;
+  width: 80%;
 `;
 
 export const Price = styled.span`
-  width: 10%;
+  width: 20%;
   text-align: right;
 `;
 
