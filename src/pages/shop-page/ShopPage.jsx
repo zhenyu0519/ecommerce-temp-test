@@ -12,8 +12,16 @@ import {
 // components
 import Overview from "../../components/collections-overview/Overview";
 import CollectionPage from "../collection-page/CollectionPage";
+import WithSpinner from "../../components/with-spinner/WithSpinner";
+
+const CollectionsOverviewWithSpinner = WithSpinner(Overview);
+const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 
 class ShopPage extends Component {
+  state = {
+    loading: true,
+  };
+
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
@@ -23,17 +31,33 @@ class ShopPage extends Component {
       async (snapshot) => {
         const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
         updateCollections(collectionsMap);
+        this.setState({ loading: false });
       }
     );
   }
   render() {
     const { match } = this.props;
+    const {loading}=this.state
     return (
       <div className="shop-page">
-        <Route exact path={`${match.path}`} component={Overview} />
+        <Route
+          exact
+          path={`${match.path}`}
+          render={(props) => (
+            <CollectionsOverviewWithSpinner
+              isLoading={loading}
+              {...props}
+            ></CollectionsOverviewWithSpinner>
+          )}
+        />
         <Route
           path={`${match.path}/:collectionId`}
-          component={CollectionPage}
+          render={(props) => (
+            <CollectionPageWithSpinner
+              isLoading={loading}
+              {...props}
+            ></CollectionPageWithSpinner>
+          )}
         />
       </div>
     );
