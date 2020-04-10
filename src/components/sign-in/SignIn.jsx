@@ -39,7 +39,6 @@ class SignIn extends Component {
       <SignInContainer>
         <Title>I already have an account</Title>
         <span>Sign in with your email and password</span>
-
         <form onSubmit={this.handleSubmit}>
           <FormInput
             name="email"
@@ -74,8 +73,8 @@ class SignIn extends Component {
 }
 const mapDispatchToProps = (dispatch) => ({
   googleSignInStart: () => dispatch(googleSignInStart()),
-  emailSignInStart: (email, password) =>
-    dispatch(emailSignInStart({ email, password })),
+  emailSignInStart: (email, password) =>{
+    return dispatch(emailSignInStart({ email, password }))},
 });
 
 export default connect(null, mapDispatchToProps)(SignIn);

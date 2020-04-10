@@ -41,7 +41,7 @@ export const addCollectionAndDocuments = async (
   objectsToadd
 ) => {
   const collectionRef = firestore.collection(collectionKey);
-// batch here is to prevent uploading half data, it is for either uploading all data or uploading no data
+  // batch here is to prevent uploading half data, it is for either uploading all data or uploading no data
   const batch = firestore.batch();
   objectsToadd.forEach((obj) => {
     const newDocRef = collectionRef.doc();
@@ -67,6 +67,15 @@ export const convertCollectionsSnapshotToMap = (collections) => {
 };
 
 firebase.initializeApp(config);
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
+};
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 // route
 import { Route, Switch, Redirect } from "react-router-dom";
+// reselect
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "./redux/user/userSelectors";
 // components
 import Header from "./components/header/Header";
 import HomePage from "./pages/home-page/HomePage";
@@ -10,6 +13,7 @@ import CheckoutPage from "./pages/checkout-page/CheckoutPage";
 // redux actions, selector
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/userActions";
+import { checkUserSession } from "./redux/user/userActions";
 
 import "./App.css";
 
@@ -17,6 +21,8 @@ class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    const { checkUserSession } = this.props;
+    checkUserSession();
     // Check if there is user logged in
     // this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
     //   // If a use logged in
@@ -60,7 +66,12 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+  checkUserSession: () => dispatch(checkUserSession()),
 });
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
