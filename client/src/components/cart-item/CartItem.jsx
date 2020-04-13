@@ -8,9 +8,7 @@ import {
   CartItemPrice,
 } from "./CartItemStyle.jsx";
 
-export default function CartItem({
-  item: { imageUrl, price, name, quantity },
-}) {
+function CartItem({ item: { imageUrl, price, name, quantity } }) {
   return (
     <CartItemContainer>
       <CartItemImage src={imageUrl} alt={name} />
@@ -23,3 +21,5 @@ export default function CartItem({
     </CartItemContainer>
   );
 }
+
+export default React.memo(CartItem);

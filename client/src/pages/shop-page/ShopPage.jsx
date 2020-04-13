@@ -12,6 +12,7 @@ const ShopPage = ({ fetchCollectionsStart, match }) => {
   useEffect(() => {
     fetchCollectionsStart();
   }, [fetchCollectionsStart]);
+  
   return (
     <div className="shop-page">
       <Route exact path={`${match.path}`} component={OverviewContainer} />
