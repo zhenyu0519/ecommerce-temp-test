@@ -6,10 +6,14 @@ import { signUpStart } from "../../redux/user/userActions";
 import FormInput from "../form-input/FormInput";
 import CustomButton from "../custom-button/CustomButton";
 // style
-import { SignUpContainer, Title, ButtonContainer } from "./SignUpStyle.jsx";
+import {
+  SignUpContainer,
+  Title,
+  ButtonContainer,
+  Subtitle,
+} from "./SignUpStyle.jsx";
 
 const SignUp = ({ signUpStart }) => {
-
   const [userCredentials, setUserCredentials] = useState({
     displayName: "",
     email: "",
@@ -36,7 +40,7 @@ const SignUp = ({ signUpStart }) => {
   return (
     <SignUpContainer>
       <Title className="title">I do not have a account</Title>
-      <span>Sign up with your email and password</span>
+      <Subtitle>Sign up with your email and password</Subtitle>
       <form onSubmit={handleSubmit}>
         <FormInput
           type="text"

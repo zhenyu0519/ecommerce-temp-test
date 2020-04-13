@@ -30,6 +30,17 @@ export const CollectionItemContainer = styled.div`
       opacity: 0.85;
       display: flex;
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+    &:hover {
+      opacity: unset;
+    }
+    button {
+      opacity: unset;
+    }
+  }
 `;
 
 export const CollectionFooterContainer = styled.div`
@@ -38,6 +49,9 @@ export const CollectionFooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 20px;
+  @media screen and (max-width: 800px) {
+    font-size: 15px;
+  }
 `;
 
 export const Name = styled.span`
@@ -55,6 +69,12 @@ export const AddItemButton = styled(CustomButton)`
   position: absolute;
   top: 220px;
   display: none;
+  @media screen and (max-width: 800px) {
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 5px;
+  }
 `;
 // .collection-item {
 //   width: 22vw;

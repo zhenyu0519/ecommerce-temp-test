@@ -9,6 +9,9 @@ export const CheckoutItemContainer = styled.div`
   font-size: 20px;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 800px) {
+    font-size: 10px;
+  }
 `;
 
 export const CheckoutImageContainer = styled.div`
